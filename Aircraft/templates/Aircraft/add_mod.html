@@ -4,7 +4,7 @@
 {% block content %}
     <main>
         <div class="container">
-            <form class="form" method="POST" action="{% url 'addMod' %}">
+            <form class="form" method="POST" action="{% if page == 'add' %}{% url 'addMod' %}{% else %}{% url 'viewEditMod' mod.tcto %}{% endif %}">
                 {% csrf_token %}
                 {{form.as_p}}
                 <input type="submit" value="Submit" class="button">

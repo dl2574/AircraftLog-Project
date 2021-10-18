@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Aircraft
+from .models import Aircraft, Mod
 from .forms import AircraftForm, ModForm
 
 def aircraftList(request):
@@ -42,6 +42,7 @@ def editAircraftMods(request, pk):
 
 def addMod(request):
     form = ModForm()
+    page = 'add'
 
     if request.method == "POST":
         form = ModForm(request.POST)
@@ -49,5 +50,19 @@ def addMod(request):
             form.save()
             return redirect('aircraftList')
 
-    context = {'form': form}
+    context = {'form': form, 'page': page}
+    return render(request, 'Aircraft/add_mod.html', context)
+
+def viewEditMod(request, pk):
+    mod = Mod.objects.get(tcto=pk)
+    form = ModForm(instance=mod)
+    page = 'view'
+
+    if request.method == "POST":
+        form = ModForm(request.POST, instance=mod)
+        if form.is_valid():
+            form.save()
+            return redirect('aircraftList')
+
+    context = {'form': form, 'mod': mod, 'page': page}
     return render(request, 'Aircraft/add_mod.html', context)
