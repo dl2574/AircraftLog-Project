@@ -12,7 +12,7 @@ class Profile(models.Model):
     crew_position = models.ForeignKey('CrewPosition', on_delete=DO_NOTHING, null=True, blank=True)
 
     def __str__(self):
-        return self.lname + ", " + self.lname
+        return self.lname + ", " + self.fname
 
 class Rank(models.Model):
     rank = models.CharField(max_length=10)
