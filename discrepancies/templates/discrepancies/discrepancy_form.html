@@ -1,0 +1,15 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<main>
+    <div class="container">
+        <form class="form" method="POST" action="{% url 'addDiscrepancy' %}">
+            {% csrf_token %}
+            {{form.as_p}}
+            <input type="submit" value="Submit" class="button">
+        </form>
+    </div>
+</main>
+
+{% endblock content %}

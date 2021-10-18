@@ -1,0 +1,27 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<main>
+    {% for airframe in aircraft %}
+        <a href="{% url 'aircraft' airframe.serial_number %}" class="link-card">
+            <div class="container aircraftBox">
+                <div class="serialBox"><h2>{{airframe.serial_number}}</hd></div>
+                <div class="modBox">
+                    {% for mod in airframe.mods.all %}
+                        <p class="item-card">{{mod}}</p>
+                    {% endfor %}
+                </div>
+                <div class="discrepancyBox gr-2-3">
+                    <h3>Discrepancies:</h3>
+                    {% for discrepancy in airframe.discrepancy_set.all %}
+                    <p>{{discrepancy.title}}:  {{discrepancy.description}}</p>
+                    {% endfor %}
+                </div>
+                
+            </div>
+        </a>
+    {% endfor %}
+</main>
+
+{% endblock content %}

@@ -1,0 +1,45 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+<main>
+    <div class="container aircraftBox">
+        <h1 class="serialBox">{{airframe.serial_number}}</h1>
+        <div class="aircraftBtnBox pos-gc-2-4">
+            <a class="button" href="#">Print Report</a>
+            <a class="button link-card" href="{% url 'editMods' airframe.serial_number %}">Edit Modifications</a>
+        </div>
+        <div class="modBox pos-gc-1-4 pos-gr-2-3">
+            {% for mod in airframe.mods.all %}
+                <p class="item-card">{{mod}}</p>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="container grid-container gc-2">   
+        {% for discrepancy in airframe.discrepancy_set.all %}
+            <div class="discrepancyContainer">
+                <div class="discrepancyMeta">
+                    <button class="button">(0) Reoccurances</button>
+                    <p><strong>Identified By:</strong> PLACE HOLDER</p>
+                    <p><strong>Date Identified:</strong> {{discrepancy.date_discovered}}</p>
+                    <p><strong>Date Resolved:</strong> {{discrepancy.date_resolved}}</p>
+                </div>
+                <div class="discrepancyInfo">
+                <h3>{{discrepancy}}</h3>
+                <p>{{discrepancy.description}}</p>
+                </div>     
+            </div>
+        {% endfor %}
+            
+
+        <div class="eventContainer">
+            {% for event in airframe.event_set.all %}
+                <a class="link-card" href="{% url 'viewEditEvent' event.id %}"><p class="item-card">{{event.type}} - {{event.location}}</p></a>
+            {% endfor %}
+        </div>
+    </div>
+</main>
+
+
+{% endblock %}
