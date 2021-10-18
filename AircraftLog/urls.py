@@ -21,4 +21,5 @@ urlpatterns = [
     path('', include('Aircraft.urls')),
     path('discrepancy/', include('discrepancies.urls')),
     path('event/', include('events.urls')),
+    path('account/', include('user_info.urls')),
 ]

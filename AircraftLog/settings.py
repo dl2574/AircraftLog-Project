@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'discrepancies.apps.DiscrepanciesConfig',
     'Aircraft.apps.AircraftConfig',
     'events.apps.EventsConfig',
+    'user_info.apps.UserInfoConfig',
 ]
 
 MIDDLEWARE = [
