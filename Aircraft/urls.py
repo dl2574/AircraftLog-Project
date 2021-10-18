@@ -6,4 +6,5 @@ urlpatterns = [
     path('aircraft/<str:pk>/', views.aircraft, name='aircraft'),
     path('add_aircraft/', views.addAircraft, name="addAircraft"),
     path('editAircraftMods/<str:pk>/', views.editAircraftMods, name='editMods'),
+    path('addMod/', views.addMod, name='addMod'),
 ]
