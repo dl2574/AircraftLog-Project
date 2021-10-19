@@ -8,7 +8,9 @@ def addDiscrepancy(request):
     if request.method == "POST":
         form = DiscrepancyForm(request.POST)
         if form.is_valid():
-            form.save()
+            discrepancy = form.save(commit=False)
+            discrepancy.discovered_by = request.user.profile
+            discrepancy.save()
             return redirect('aircraftList')
 
     context = {'form': form}

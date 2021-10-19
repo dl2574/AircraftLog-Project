@@ -4,7 +4,7 @@ from .models import Discrepancy
 class DiscrepancyForm(ModelForm):
     class Meta:
         model = Discrepancy
-        fields = '__all__'
+        fields = ['title', 'description', 'date_discovered', 'date_resolved', 'aircraft_id']
 
     def __init__(self, *args, **kwargs):
         super(DiscrepancyForm, self).__init__(*args, **kwargs)
