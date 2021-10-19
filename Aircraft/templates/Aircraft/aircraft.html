@@ -20,7 +20,7 @@
         {% for discrepancy in airframe.discrepancy_set.all %}
             <div class="discrepancyContainer">
                 <div class="discrepancyMeta">
-                    <button class="button">(0) Reoccurances</button>
+                    <button class="button">({{discrepancy.occurences}}) Reoccurances</button>
                     <p><strong>Identified By:</strong> {{discrepancy.discovered_by}}</p>
                     <p><strong>Date Identified:</strong> {{discrepancy.date_discovered}}</p>
                     <p><strong>Date Resolved:</strong> {{discrepancy.date_resolved}}</p>
@@ -36,7 +36,12 @@
         <div class="eventContainer">
             <h3>Events</h3>
             {% for event in airframe.event_set.all %}
-                <a class="link-card" href="{% url 'viewEditEvent' event.id %}"><p class="item-card">{{event.type}} - {{event.location}}</p></a>
+                <a class="link-card item-card" href="{% url 'viewEditEvent' event.id %}">
+                    <p class="item-card">{{event.type}} - {{event.location}}</p>
+                    <p>
+                    {{event.event_date}} {% if event.event_date_end %} - {{event.event_date_end}} {% endif %}
+                    </p>
+                </a>
             {% endfor %}
         </div>
     </div>

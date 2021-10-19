@@ -14,7 +14,7 @@
                 </div>
                 <div class="discrepancyBox gr-2-3">
                     <h3>Discrepancies:</h3>
-                    {% for discrepancy in airframe.discrepancy_set.all %}
+                    {% for discrepancy in airframe.discrepancy_set.all|slice:":3" %}
                     <p>{{discrepancy.title}}:  {{discrepancy.description}}</p>
                     {% endfor %}
                 </div>
