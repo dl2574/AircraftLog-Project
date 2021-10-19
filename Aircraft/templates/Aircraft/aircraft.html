@@ -18,9 +18,9 @@
 
     <div class="container grid-container gc-2">   
         {% for discrepancy in airframe.discrepancy_set.all %}
-            <div class="discrepancyContainer">
+            <div class="discrepancyContainer {% if discrepancy.date_resolved is not None %}discrepancyResolved{% endif %}">
                 <div class="discrepancyMeta">
-                    <button class="button">({{discrepancy.occurences}}) Reoccurances</button>
+                    <button class="button">({{discrepancy.occurrences}}) Reoccurances</button>
                     <p><strong>Identified By:</strong> {{discrepancy.discovered_by}}</p>
                     <p><strong>Date Identified:</strong> {{discrepancy.date_discovered}}</p>
                     <p><strong>Date Resolved:</strong> {{discrepancy.date_resolved}}</p>
