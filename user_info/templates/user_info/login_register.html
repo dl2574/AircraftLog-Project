@@ -1,0 +1,53 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+    <main>
+        {% if page == 'login' %}
+            <div class="container">
+                <div class="authBox">
+                    <h1>Login</h1>
+                    <form class="form" method="POST" action="{% url 'login'%}">
+                        {% csrf_token %}
+                                <!-- Input:Username -->
+                        <div class="form__field">
+                            <label for="uasername">Username: </label>
+                            <input
+                            class="input"
+                            id="username"
+                            type="text"
+                            name="username"
+                            placeholder="Enter your username..."
+                            />
+                        </div>
+
+                        <!-- Input:Password -->
+                        <div class="form__field">
+                            <label for="password">Password: </label>
+                            <input
+                            class="input"
+                            id="passowrd"
+                            type="password"
+                            name="password"
+                            placeholder="••••••••"
+                            />
+                        <input class="button" type="submit" value="Login"/>
+                    </form>
+                    <p>Don't have an account? <a class="link" href="{% url 'register' %}">Register</a></p>
+                </div>
+            </div>
+        {% else %}
+            <div class="container">
+                <div class="authBox">
+                    <h1>Register</h1>
+                    <form class="form" method="POST" action="{% url 'register'%}">
+                        {% csrf_token %}
+                        {{form.as_p}}
+                        <input class="button" type="submit" value="Register"/>
+                    </form>
+                    <p>Already have an account? <a class="link" href="{% url 'login' %}">Sign In</a></p>
+                </div>
+            </div>
+        {% endif %}
+    </main>
+{% endblock %}

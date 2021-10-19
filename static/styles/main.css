@@ -50,6 +50,16 @@ body {
     grid-row: 2/3 !important;
 }
 
+.authBox {
+    background-color: var(--primary-color);
+    border: solid 5px black;
+    border-radius: 25px;
+    color: white;
+    padding: 2%;
+    max-width: 60%;
+    margin: 10px auto 10px auto;
+}
+
 .aircraftBtnBox {
     display: flex;
     flex-direction: row-reverse;
@@ -184,12 +194,24 @@ body {
     text-decoration: none;
 }
 
+.link {
+    color: var(--primcomp-color);
+    font-weight: bold;
+}
+
 .form {
     display: block;
+    max-width: 60%;
     background-color: var(--primary-color);
     padding: 10px;
-    margin: 10px;
+    margin: 10px auto 10px auto;
     border: 2px solid black;
+}
+
+.form__field {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    
 }
 
 input.input[type="text"],

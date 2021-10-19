@@ -7,11 +7,17 @@
                 <h1 class="unit-title"><a class="nav-link" href="{% url 'aircraftList' %}">66 RQS</a></h1>
                 <ul class = "nav-list">
                     <li><a class="nav-link" href="{% url 'aircraftList' %}">Aircraft List</a></li>
-                    <li><a class="nav-link" href="{% url 'addDiscrepancy' %}">Add Discrepancy</a></li>
-                    <li><a class="nav-link" href="{% url 'addEvent' %}">Add Event</a></li>
-                    <li><a class="nav-link" href="{% url 'addAircraft' %}">Add Aircraft</a></li>
-                    <li><a class="nav-link" href="{% url 'addMod' %}">Add Mod</a></li>
-                    <li><a class="nav-link" href="#">Settings</a></li>
+     
+                    {% if request.user.is_authenticated %}
+                        <li><a class="nav-link" href="{% url 'addDiscrepancy' %}">Add Discrepancy</a></li>
+                        <li><a class="nav-link" href="{% url 'addEvent' %}">Add Event</a></li>
+                        <li><a class="nav-link" href="{% url 'addAircraft' %}">Add Aircraft</a></li>
+                        <li><a class="nav-link" href="{% url 'addMod' %}">Add Mod</a></li>
+                        <li><a class="nav-link" href="{% url 'editProfile' %}">Profile</a></li>
+                        <li><a class="nav-link" href="{% url 'logout' %}">Logout</a></li>
+                    {% else %}
+                        <li><a class="nav-link" href="{% url 'login' %}">Login</a></li>
+                    {% endif %}
                 </ul>
             </nav>
         </div>

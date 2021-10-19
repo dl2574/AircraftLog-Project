@@ -1,0 +1,14 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+    <main>
+        <div class="container">
+            <form class="form" method="POST" action="{% url 'editProfile' %}">
+                {% csrf_token %}
+                {{form.as_p}}
+                <input type="submit" value="Submit" class="button">
+            </form>
+        </div>
+    </main>
+{% endblock %}
