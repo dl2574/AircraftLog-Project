@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from .models import Aircraft, Mod
 from .forms import AircraftForm, ModForm
@@ -15,6 +16,7 @@ def aircraft(request, pk):
     context = {'airframe':airframe}
     return render(request, 'Aircraft/aircraft.html', context)
 
+@login_required(login_url='login')
 def addAircraft(request):
     form = AircraftForm()
 
@@ -27,6 +29,7 @@ def addAircraft(request):
     context = {'form':form}
     return render(request, 'Aircraft/add_aircraft_form.html', context)
 
+@login_required(login_url='login')
 def editAircraftMods(request, pk):
     airframe = Aircraft.objects.get(serial_number=pk)
     form = AircraftForm(instance=airframe)
@@ -40,6 +43,7 @@ def editAircraftMods(request, pk):
     context = {'form': form, 'airframe': airframe}
     return render(request, 'Aircraft/edit_aircraft_mods.html', context)
 
+@login_required(login_url='login')
 def addMod(request):
     form = ModForm()
     page = 'add'
@@ -53,6 +57,7 @@ def addMod(request):
     context = {'form': form, 'page': page}
     return render(request, 'Aircraft/add_mod.html', context)
 
+@login_required(login_url='login')
 def viewEditMod(request, pk):
     mod = Mod.objects.get(tcto=pk)
     form = ModForm(instance=mod)
