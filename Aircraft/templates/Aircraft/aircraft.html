@@ -6,7 +6,7 @@
     <div class="container aircraftBox">
         <h1 class="serialBox">{{airframe.serial_number}}</h1>
         <div class="aircraftBtnBox pos-gc-2-4">
-            <a class="link-card" href="#"><p class="button">Print Report</p></a>
+            <a class="link-card" href="" onclick="window.print();"><p class="button">Print Report</p></a>
             <a class="link-card" href="{% url 'editMods' airframe.serial_number %}"><p class="button">Edit Modifications</p></a>
         </div>
         <div class="modBox pos-gc-1-4 pos-gr-2-3">
