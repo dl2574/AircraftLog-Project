@@ -14,7 +14,7 @@ class Discrepancy(models.Model):
     occurrences = models.IntegerField(default=0)
 
     class Meta:
-        ordering = ['date_resolved', '-occurrences', '-date_discovered']
+        ordering = ['-date_resolved', '-occurrences', '-date_discovered']
 
     def __str__(self):
         return self.title

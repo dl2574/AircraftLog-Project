@@ -1,0 +1,238 @@
+:root {
+    --primary-color: #036A38;
+    --secondary-color: #03696A;
+    --tertiary-color: #03366A;
+    --primcomp-color: #6A0336;
+    --text-color: white;
+}
+
+*, ::before, ::after {
+    box-sizing: border-box;
+    color: inherit;
+}
+
+body {
+    margin: 0;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+}
+
+.container {
+    max-width: 1320px;
+    padding-left: .75rem;
+    padding-right: .75rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.inline {
+    display: inline;
+}
+
+.grid-container {
+    display: grid !important;
+    column-gap: 10px;
+}
+
+.gc-2 {
+    grid-template-columns: 5fr 1fr;
+}
+
+.pos-gc-1-4 {
+    grid-column: 1/4 !important;
+}
+
+.pos-gc-2-4{
+    grid-column: 2/4 !important;
+}
+
+.pos-gr-2-3 {
+    grid-row: 2/3 !important;
+}
+
+.authBox {
+    background-color: var(--primary-color);
+    border: solid 5px black;
+    border-radius: 25px;
+    color: white;
+    padding: 2%;
+    max-width: 60%;
+    margin: 10px auto 10px auto;
+}
+
+.aircraftBtnBox {
+    display: flex;
+    flex-direction: row-reverse;
+    padding: 5px;
+    
+    
+}
+
+.discrepancyContainer {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-auto-rows: minmax(100px, auto);
+    background-color: var(--primary-color);
+    margin-bottom: 10px;
+    
+}
+
+.discrepancyResolved {
+    background-color: var(--secondary-color);
+}
+
+.discrepancyMeta {
+    border: solid 1px black;
+    padding: 10px;
+}
+
+.discrepancyInfo {
+    border: solid 1px black;
+    border-left: none;
+    padding: 10px;
+}
+
+.eventContainer {
+    grid-column: 2/3;
+    grid-row: 1/5;
+    min-height: 500px;
+    border: solid 1px black;
+    padding: 5px;
+    background-color: var(--primary-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.header-bar {
+    background-color: var(--primary-color);
+    margin: 0;
+}
+
+.nav-bar {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    align-items: center;
+    padding: .75em, 0;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+    padding: 0;
+}
+
+.nav-link {
+    display: block;
+    text-decoration: none;
+    padding: .5em;
+    font-size: medium;
+    color: var(--text-color);
+}
+
+.unit-title {
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.aircraftBox {
+    border: solid 1px black;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: grid;
+    grid-template-columns: 200px 200px auto;
+    grid-auto-rows: minmax(100px, auto);
+    background-color: var(--primary-color);
+}
+
+.serialBox {
+    grid-column: 1/2;
+    align-self: center;
+    justify-self: center;
+    padding: 5px;
+    border: solid 3px black;
+    min-width: 200px;
+    text-align: center;
+}
+
+.modBox {
+    grid-column: 2/4;
+    padding: 5px;
+    align-self: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.item-card {
+    border: solid 1px white;
+    border-radius: 5px;
+    padding: 5px; 
+    margin: 10px;
+    background-color: var(--tertiary-color);
+    font-weight: bold;
+    min-width: 75px;
+    text-align: center;
+}
+
+.discrepancyBox {
+    grid-column: 1/4;
+    padding: 5px;
+}
+
+.button {
+    min-width: 100px;
+    background-color: var(--primcomp-color);
+    font-weight: bold;
+    padding: 10px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px
+}
+
+.link-card {
+    text-decoration: none;
+}
+
+.link {
+    color: var(--primcomp-color);
+    font-weight: bold;
+}
+
+.form {
+    display: block;
+    max-width: 60%;
+    background-color: var(--primary-color);
+    padding: 10px;
+    margin: 10px auto 10px auto;
+    border: 2px solid black;
+}
+
+.form__field {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    
+}
+
+input.input[type="text"],
+input.input[type='email'],
+input.input[type='password'],
+input.input[type='number'],
+textarea.input,
+select.input {
+    width: 100%;
+    padding: 5px;
+    border: 2px solid black;
+    border-radius: 4px;
+    color: black;
+    outline: none;
+}
+
+textarea.input {
+    resize: none;
+}
+

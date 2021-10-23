@@ -36,7 +36,7 @@
         <div class="eventContainer">
             <h3>Events</h3>
             {% for event in airframe.event_set.all %}
-                <a class="link-card item-card" href="{% url 'viewEditEvent' event.id %}">
+                <a class="link-card item-card" href="{% url 'viewEditEvent' event.id %}?next={{request.path}}">
                     <p class="item-card">{{event.type}} - {{event.location}}</p>
                     <p>
                     {{event.event_date}} {% if event.event_date_end %} - {{event.event_date_end}} {% endif %}

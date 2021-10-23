@@ -10,7 +10,7 @@ def addEvent(request):
         form = EventForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('aircraftList')
+            return redirect(request.GET['next'] if 'next' in request.GET else 'aircraftList')
 
     context = {'form': form}
     return render(request, 'events/event_form.html', context)
@@ -23,7 +23,7 @@ def viewEditEvent(request, pk):
         form = EventForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('aircraftList')
+            return redirect(request.GET['next'] if 'next' in request.GET else 'aircraftList')
 
     context = {'form': form}
     return render(request, 'events/event_form.html', context)
