@@ -26,7 +26,7 @@ SECRET_KEY = os.environ.get("AIRCRAFT_LOG_SECRET")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'www.aircraft-log.herokuapp.com', 'aircraft-log.herokuapp.com/']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '.herokuapp.com', 'www.aircraft-log.herokuapp.com', 'aircraft-log.herokuapp.com']
 
 
 # Application definition
